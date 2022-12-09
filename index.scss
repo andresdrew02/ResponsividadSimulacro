@@ -1,0 +1,101 @@
+@use 'colors';
+@use 'sizes';
+
+body{
+    margin: 0;
+    max-width:100rem;
+    display:flex;
+    justify-content: center;
+}
+
+header{
+    background-color: colors.$light_blue;
+    height: sizes.$header_height;
+    display:flex;
+    justify-content: center;   
+    align-items: center;
+    max-width: 100vw;
+    h1{
+        text-align: center;
+        margin: 0;
+        color: white;
+        font-size: sizes.$header_fontsize;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+nav{
+    max-width: 100vw;
+    background-color: colors.$nav_bg;
+    height: sizes.$nav_height;
+    display:flex;
+    align-items: center;
+    column-gap: sizes.$nav_gap;
+    a{
+        color: colors.$dark_blue;
+        text-decoration: none;
+    }
+}
+
+article{
+    max-width: 100vw;
+    section{
+        padding: sizes.$section_padding;
+        h1{
+            font-size: sizes.$section_title;
+            margin: 0;
+        }
+        img{
+            max-width: 100%;
+        }
+        .table-wrapper{
+            overflow-y: scroll;
+            table{
+                border-collapse: collapse;
+                width: 100%;
+                display:auto;
+                
+                td, th{
+                    border: 1px solid black
+                }
+            }
+        }
+    }
+}
+footer{
+    max-width: 100vw;
+    background-color: colors.$light_blue;
+    text-align: center;
+    padding: 8px;
+}
+.container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;                       // mejor usar flexbox en el body para centrar el contenedor
+    background-color: colors.$white_light;           
+    max-width:80%;
+    min-width:40rem;                        // debe usarse em o rem en lugar de px y considerar un tamaño máximo, pero permitir reescalar tamaños inferiores
+}
+
+@media screen and (max-width:635px){
+    .container{
+        max-width: 100%;
+        min-width: auto;
+    }
+    header{
+        h1{
+            font-size:2rem;
+        }
+    }
+    nav{
+        flex-direction: column;
+        height:sizes.$nav_mobile_height;
+        row-gap: .5rem;
+        a{
+            width:100%;
+            text-align: center;
+            &:hover{
+                background-color: lightskyblue;
+            }
+        }
+    }
+}
